@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Doctor</string>
+    <string name="app_name">家庭版</string>
     <string name="hint_login_name">用户名</string>
     <string name="hint_login_pwd">密码</string>
     <string name="login_success">登录成功</string>

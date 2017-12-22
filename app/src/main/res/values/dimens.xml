@@ -2,7 +2,7 @@
 <resources>
     <dimen name="title_text_size">16sp</dimen>
     <dimen name="dp_4">4dp</dimen>
-    <dimen name="login_edit">200dp</dimen>
+    <dimen name="login_edit">270dp</dimen>
     <dimen name="item_margintop">5dp</dimen>
     <dimen name="left_margin">12dp</dimen>
     <dimen name="right_margin">12dp</dimen>

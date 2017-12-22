@@ -10,7 +10,7 @@ import com.ml.doctor.utils.T;
 public class CustomApplication extends Application {
     private static CustomApplication mInstance;
     public String userToken;
-    public int userId;
+    public String userId;
 
     public static CustomApplication getInstance(){
         return mInstance;

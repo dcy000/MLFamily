@@ -5,6 +5,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by lenovo on 2017/11/22.
@@ -76,5 +77,15 @@ public class Utils {
         return (hh > 9 ? "" + hh : "0" + hh) +
                 (mm > 9 ? ":" + mm : ":0" + mm) +
                 (ss > 9 ? ":" + ss : ":0" + ss);
+    }
+
+    /*
+   * 将时间戳转换为时间
+   */
+    public static String stampToDate(long s){
+        SimpleDateFormat format =  new SimpleDateFormat("MM-dd HH:mm");
+        Long time=new Long(s);
+        String d = format.format(time);
+        return d;
     }
 }

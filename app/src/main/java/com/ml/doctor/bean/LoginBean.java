@@ -6,92 +6,125 @@ package com.ml.doctor.bean;
  */
 
 public class LoginBean {
-    private int docterid, state, priority, amount, pend, number, evaluation, apply_amount,
-            service_amount;
-    private String doctername, tel, adds,
-            duty, department, documents,
-            card, gat, pro, tj,docter_photo;
-    private String hosname;
-    private R r;
+    private String exercise_habits;
+    private String sfz;
+    private String sex;
+    private String eqid;
+    private String smoke;
+    private String doid;
+    private String weight;
+    private String drink;
+    private String xfid;
+    private String bname;
+    private String dz;
+    private String blood_type;
+    private String tel;
+    private String mh;
+    private String state;
+    private String eating_habits;
+    private String bid;
+    private String user_photo;
+    private String age;
+    private String categoryid;
+    private String height;
 
-    public int getDocterid() {
-        return docterid;
+    public LoginBean() {
     }
 
-    public void setDocterid(int docterid) {
-        this.docterid = docterid;
+    public String getExercise_habits() {
+        return exercise_habits;
     }
 
-    public int getState() {
-        return state;
+    public void setExercise_habits(String exercise_habits) {
+        this.exercise_habits = exercise_habits;
     }
 
-    public void setState(int state) {
-        this.state = state;
+    public String getSfz() {
+        return sfz;
     }
 
-    public int getPriority() {
-        return priority;
+    public void setSfz(String sfz) {
+        this.sfz = sfz;
     }
 
-    public void setPriority(int priority) {
-        this.priority = priority;
+    public String getSex() {
+        return sex;
     }
 
-    public int getAmount() {
-        return amount;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public String getEqid() {
+        return eqid;
     }
 
-    public int getPend() {
-        return pend;
+    public void setEqid(String eqid) {
+        this.eqid = eqid;
     }
 
-    public void setPend(int pend) {
-        this.pend = pend;
+    public String getSmoke() {
+        return smoke;
     }
 
-    public int getNumber() {
-        return number;
+    public void setSmoke(String smoke) {
+        this.smoke = smoke;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public String getDoid() {
+        return doid;
     }
 
-    public int getEvaluation() {
-        return evaluation;
+    public void setDoid(String doid) {
+        this.doid = doid;
     }
 
-    public void setEvaluation(int evaluation) {
-        this.evaluation = evaluation;
+    public String getWeight() {
+        return weight;
     }
 
-    public int getApply_amount() {
-        return apply_amount;
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 
-    public void setApply_amount(int apply_amount) {
-        this.apply_amount = apply_amount;
+    public String getDrink() {
+        return drink;
     }
 
-    public int getService_amount() {
-        return service_amount;
+    public void setDrink(String drink) {
+        this.drink = drink;
     }
 
-    public void setService_amount(int service_amount) {
-        this.service_amount = service_amount;
+    public String getXfid() {
+        return xfid;
     }
 
-    public String getDoctername() {
-        return doctername;
+    public void setXfid(String xfid) {
+        this.xfid = xfid;
     }
 
-    public void setDoctername(String doctername) {
-        this.doctername = doctername;
+    public String getBname() {
+        return bname;
+    }
+
+    public void setBname(String bname) {
+        this.bname = bname;
+    }
+
+    public String getDz() {
+        return dz;
+    }
+
+    public void setDz(String dz) {
+        this.dz = dz;
+    }
+
+    public String getBlood_type() {
+        return blood_type;
+    }
+
+    public void setBlood_type(String blood_type) {
+        this.blood_type = blood_type;
     }
 
     public String getTel() {
@@ -102,148 +135,67 @@ public class LoginBean {
         this.tel = tel;
     }
 
-    public String getAdds() {
-        return adds;
+    public String getMh() {
+        return mh;
     }
 
-    public void setAdds(String adds) {
-        this.adds = adds;
+    public void setMh(String mh) {
+        this.mh = mh;
     }
 
-    public String getDuty() {
-        return duty;
+    public String getState() {
+        return state;
     }
 
-    public void setDuty(String duty) {
-        this.duty = duty;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public String getDepartment() {
-        return department;
+    public String getEating_habits() {
+        return eating_habits;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setEating_habits(String eating_habits) {
+        this.eating_habits = eating_habits;
     }
 
-    public String getDocuments() {
-        return documents;
+    public String getBid() {
+        return bid;
     }
 
-    public void setDocuments(String documents) {
-        this.documents = documents;
+    public void setBid(String bid) {
+        this.bid = bid;
     }
 
-    public String getCard() {
-        return card;
+    public String getUser_photo() {
+        return user_photo;
     }
 
-    public void setCard(String card) {
-        this.card = card;
+    public void setUser_photo(String user_photo) {
+        this.user_photo = user_photo;
     }
 
-    public String getGat() {
-        return gat;
+    public String getAge() {
+        return age;
     }
 
-    public void setGat(String gat) {
-        this.gat = gat;
+    public void setAge(String age) {
+        this.age = age;
     }
 
-    public String getPro() {
-        return pro;
+    public String getCategoryid() {
+        return categoryid;
     }
 
-    public void setPro(String pro) {
-        this.pro = pro;
+    public void setCategoryid(String categoryid) {
+        this.categoryid = categoryid;
     }
 
-    public String getTj() {
-        return tj;
+    public String getHeight() {
+        return height;
     }
 
-    public void setTj(String tj) {
-        this.tj = tj;
-    }
-
-    public String getDocter_photo() {
-        return docter_photo;
-    }
-
-    public void setDocter_photo(String docter_photo) {
-        this.docter_photo = docter_photo;
-    }
-
-    public String getHosname() {
-        return hosname;
-    }
-
-    public void setHosname(String hosname) {
-        this.hosname = hosname;
-    }
-
-    public R getR() {
-        return r;
-    }
-
-    public void setR(R r) {
-        this.r = r;
-    }
-
-    public class R{
-        private int rankid;
-        private String rankname;
-
-        public int getRankid() {
-            return rankid;
-        }
-
-        public void setRankid(int rankid) {
-            this.rankid = rankid;
-        }
-
-        public String getRankname() {
-            return rankname;
-        }
-
-        public void setRankname(String rankname) {
-            this.rankname = rankname;
-        }
-
-        @Override
-        public String toString() {
-            return "R{" +
-                    "rankid='" + rankid + '\'' +
-                    ", rankname='" + rankname + '\'' +
-                    '}';
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "LoginBean{" +
-                "docterid=" + docterid +
-                ", state=" + state +
-                ", priority=" + priority +
-                ", amount=" + amount +
-                ", pend=" + pend +
-                ", number=" + number +
-                ", evaluation=" + evaluation +
-                ", apply_amount=" + apply_amount +
-                ", service_amount=" + service_amount +
-                ", doctername='" + doctername + '\'' +
-                ", tel='" + tel + '\'' +
-                ", adds='" + adds + '\'' +
-                ", duty='" + duty + '\'' +
-                ", department='" + department + '\'' +
-                ", documents='" + documents + '\'' +
-                ", card='" + card + '\'' +
-                ", gat='" + gat + '\'' +
-                ", pro='" + pro + '\'' +
-                ", tj='" + tj + '\'' +
-                ", docter_photo='" + docter_photo + '\'' +
-                ", hosname='" + hosname + '\'' +
-                ", r=" + r +
-                '}';
+    public void setHeight(String height) {
+        this.height = height;
     }
 }

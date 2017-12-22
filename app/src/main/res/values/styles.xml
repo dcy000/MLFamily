@@ -21,4 +21,9 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
     </style>
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#bbbbbb</item>
+        <item name="colorControlActivated">#999999</item>
+        <item name="colorControlHighlight">#333333</item>
+    </style>
 </resources>

@@ -25,18 +25,13 @@ import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static String TAG="LoginActivity";
-    @BindView(R.id.welcome_text)
-    TextView welcomeText;
     @BindView(R.id.name)
     EditText name;
     @BindView(R.id.password)
     EditText password;
-    @BindView(R.id.register)
-    Button register;
-    @BindView(R.id.login)
-    Button login;
     private LoadingDialog mLoadingDialog;
-
+    @BindView(R.id.login)
+    TextView login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,16 +42,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void setOnclick() {
-        register.setOnClickListener(this);
         login.setOnClickListener(this);
 
     }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.register://注册 跳转到注册页面
-                ToastUtil.showShort(this,"注册");
-                break;
             case R.id.login:
                 login();
                 break;
@@ -82,8 +73,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         NetworkApi.login(user,pwd, new NetworkManager.SuccessCallback<LoginBean>() {
             @Override
             public void onSuccess(LoginBean response) {
-                int userId = CustomApplication.getInstance().userId;
-                NimAccountHelper.getInstance().login("docter_" + userId, "123456",null);
+                NimAccountHelper.getInstance().login(response.getEqid(), "123456",null);
                 startActivity(new Intent(LoginActivity.this,MainActivity.class));//跳转到列表界面
                 ToastUtil.showShort(LoginActivity.this,getString(R.string.login_success));
                 Log.e(TAG,response.toString());
@@ -104,9 +94,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * 保存一些基本信心到SP中
      */
     private void saveToLocal(LoginBean response) {
-        LocalShared.getInstance(this).setUserId(response.getDocterid());
-        LocalShared.getInstance(this).setUserNick(response.getDoctername());
+        LocalShared.getInstance(this).setUserId(response.getBid());
+        LocalShared.getInstance(this).setUserNick(response.getBname());
         LocalShared.getInstance(this).setUserPhone(response.getTel());
+        LocalShared.getInstance(this).setEqID(response.getEqid());
     }
 
     public void showLoadingDialog(String message) {

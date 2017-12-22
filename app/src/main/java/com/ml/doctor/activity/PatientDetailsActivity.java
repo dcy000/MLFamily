@@ -3,6 +3,7 @@ package com.ml.doctor.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -11,9 +12,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.ml.doctor.CustomApplication;
 import com.ml.doctor.R;
-import com.ml.doctor.adapter.PatientDetailsAdapter;
+import com.ml.doctor.bean.FamilyListBean;
 import com.ml.doctor.bean.PatientDetailsBean;
-import com.ml.doctor.bean.PatientListBean;
 import com.ml.doctor.call2.NimAccountHelper;
 import com.ml.doctor.call2.NimCallActivity;
 import com.ml.doctor.network.NetworkApi;
@@ -32,7 +32,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * 患者详情页
  */
 
-public class PatientDetailsActivity extends BaseActivity {
+public class PatientDetailsActivity extends BaseActivity implements View.OnClickListener {
     private static String TAG = "PatientDetailsActivity";
     @BindView(R.id.head)
     CircleImageView head;
@@ -100,11 +100,25 @@ public class PatientDetailsActivity extends BaseActivity {
     TextView more;
     @BindView(R.id.ll5)
     LinearLayout ll5;
+    @BindView(R.id.ll_maibo)
+    LinearLayout llMaibo;
+    @BindView(R.id.ll_xinlv)
+    LinearLayout llXinlv;
+    @BindView(R.id.ll_xuetang)
+    LinearLayout llXuetang;
+    @BindView(R.id.ll_xueyang)
+    LinearLayout llXueyang;
+    @BindView(R.id.ll_gaoya)
+    LinearLayout llGaoya;
+    @BindView(R.id.ll_diya)
+    LinearLayout llDiya;
+    @BindView(R.id.ll_tiwen)
+    LinearLayout llTiwen;
 
 
     private int limit = 10;
     private int start_index = 0, end_index = 9;
-    private PatientListBean patient;
+    private FamilyListBean patient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,9 +126,22 @@ public class PatientDetailsActivity extends BaseActivity {
         setContentView(R.layout.activity_details);
         ButterKnife.bind(this);
         patient = getIntent().getParcelableExtra("data");
+        //呼叫
+        NimAccountHelper.getInstance().login(patient.getEqid(), "123456", null);
         setHat();
+        seClick();
         setData();
         getData();
+    }
+
+    private void seClick() {
+        llMaibo.setOnClickListener(this);
+        llXinlv.setOnClickListener(this);
+        llXuetang.setOnClickListener(this);
+        llXueyang.setOnClickListener(this);
+        llGaoya.setOnClickListener(this);
+        llDiya.setOnClickListener(this);
+        llTiwen.setOnClickListener(this);
     }
 
     private void setData() {
@@ -130,70 +157,72 @@ public class PatientDetailsActivity extends BaseActivity {
         weight.setText(patient.getWeight() + "Kg");
         blood.setText(patient.getBlood_type() + "型");
         String eating = "", smoking = "", drinking = "", motioning = "";
-        switch (patient.getEating_habits()) {
+        if (!TextUtils.isEmpty(patient.getEating_habits()))
+            switch (patient.getEating_habits()) {
 
-            case "1":
-                eating = "荤素搭配";
-                break;
-            case "2":
-                eating = "偏好吃荤";
-                break;
-            case "3":
-                eating = "偏好吃素";
-                break;
-            case "4":
-                eating = "偏好吃咸";
-                break;
-            case "5":
-                eating = "偏好油腻";
-                break;
-            case "6":
-                eating = "偏好甜食";
-                break;
-        }
+                case "1":
+                    eating = "荤素搭配";
+                    break;
+                case "2":
+                    eating = "偏好吃荤";
+                    break;
+                case "3":
+                    eating = "偏好吃素";
+                    break;
+                case "4":
+                    eating = "偏好吃咸";
+                    break;
+                case "5":
+                    eating = "偏好油腻";
+                    break;
+                case "6":
+                    eating = "偏好甜食";
+                    break;
+            }
 
         eating_t.setText(eating);
 
-
-        switch (patient.getSmoke()) {
-            case "1":
-                smoking = "经常抽烟";
-                break;
-            case "2":
-                smoking = "偶尔抽烟";
-                break;
-            case "3":
-                smoking = "从不抽烟";
-                break;
-        }
+        if (!TextUtils.isEmpty(patient.getSmoke()))
+            switch (patient.getSmoke()) {
+                case "1":
+                    smoking = "经常抽烟";
+                    break;
+                case "2":
+                    smoking = "偶尔抽烟";
+                    break;
+                case "3":
+                    smoking = "从不抽烟";
+                    break;
+            }
         smoke.setText(smoking);
-        switch (patient.getDrink()) {
-            case "1":
-                drinking = "经常喝酒";
-                break;
-            case "2":
-                drinking = "偶尔喝酒";
-                break;
-            case "3":
-                drinking = "从不喝酒";
-                break;
-        }
+        if (!TextUtils.isEmpty(patient.getDrink()))
+            switch (patient.getDrink()) {
+                case "1":
+                    drinking = "经常喝酒";
+                    break;
+                case "2":
+                    drinking = "偶尔喝酒";
+                    break;
+                case "3":
+                    drinking = "从不喝酒";
+                    break;
+            }
         drinking_t.setText(drinking);
-
-        switch (patient.getExercise_habits()) {
-            case "1":
-                motioning = "每天一次";
-                break;
-            case "2":
-                motioning = "每周几次";
-                break;
-            case "3":
-                motioning = "偶尔运动";
-                break;
-            case "4":
-                motioning = "从不运动";
-                break;
-        }
+        if (!TextUtils.isEmpty(patient.getExercise_habits()))
+            switch (patient.getExercise_habits()) {
+                case "1":
+                    motioning = "每天一次";
+                    break;
+                case "2":
+                    motioning = "每周几次";
+                    break;
+                case "3":
+                    motioning = "偶尔运动";
+                    break;
+                case "4":
+                    motioning = "从不运动";
+                    break;
+            }
         sports.setText(motioning);
     }
 
@@ -272,7 +301,7 @@ public class PatientDetailsActivity extends BaseActivity {
     }
 
     private void setHat() {
-        setTopTitle("患者使用详情");
+        setTopTitle("家人健康记录");
         setRightView(R.drawable.ic_call);
     }
 
@@ -283,8 +312,49 @@ public class PatientDetailsActivity extends BaseActivity {
 
     @Override
     protected void onRightViewClick() {
-        //呼叫
-        NimAccountHelper.getInstance().login("docter_" + CustomApplication.getInstance().userId, "123456", null);
         NimCallActivity.launch(this, "user_" + patient.getBid());
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.ll_maibo:
+                ToastUtil.showShort(this,"脉搏暂不提供图表分析");
+//                startActivity(new Intent(this, ChartActivity.class)
+//                        .putExtra("type", "脉搏")
+//                        .putExtra("userid", patient.getBid()));
+                break;
+            case R.id.ll_xinlv:
+                ToastUtil.showShort(this,"心率暂不提供图表分析");
+//                startActivity(new Intent(this, ChartActivity.class)
+//                        .putExtra("type", "心率")
+//                        .putExtra("userid", patient.getBid()));
+                break;
+            case R.id.ll_xuetang:
+                startActivity(new Intent(this, ChartActivity.class)
+                        .putExtra("type", "血糖")
+                        .putExtra("userid", patient.getBid()));
+                break;
+            case R.id.ll_xueyang:
+                startActivity(new Intent(this, ChartActivity.class)
+                        .putExtra("type", "血氧")
+                        .putExtra("userid", patient.getBid()));
+                break;
+            case R.id.ll_gaoya:
+                startActivity(new Intent(this, ChartActivity.class)
+                        .putExtra("type", "高压")
+                        .putExtra("userid", patient.getBid()));
+                break;
+            case R.id.ll_diya:
+                startActivity(new Intent(this, ChartActivity.class)
+                        .putExtra("type", "低压")
+                        .putExtra("userid", patient.getBid()));
+                break;
+            case R.id.ll_tiwen:
+                startActivity(new Intent(this, ChartActivity.class)
+                        .putExtra("type", "体温")
+                        .putExtra("userid", patient.getBid()));
+                break;
+        }
     }
 }

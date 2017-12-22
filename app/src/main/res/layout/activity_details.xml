@@ -294,6 +294,7 @@
            android:layout_marginTop="16dp"
            android:gravity="center">
            <LinearLayout
+               android:id="@+id/ll_maibo"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:orientation="vertical"
@@ -318,6 +319,7 @@
                android:layout_height="25dp"
                android:background="#eeeeee"/>
            <LinearLayout
+               android:id="@+id/ll_xinlv"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:orientation="vertical"
@@ -356,6 +358,7 @@
            android:layout_marginTop="12dp"
            android:gravity="center">
            <LinearLayout
+               android:id="@+id/ll_xuetang"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:orientation="vertical"
@@ -380,6 +383,7 @@
                android:layout_height="25dp"
                android:background="#eeeeee"/>
            <LinearLayout
+               android:id="@+id/ll_xueyang"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:orientation="vertical"
@@ -418,6 +422,7 @@
            android:layout_marginTop="12dp"
            android:gravity="center">
            <LinearLayout
+               android:id="@+id/ll_gaoya"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:orientation="vertical"
@@ -442,6 +447,7 @@
                android:layout_height="25dp"
                android:background="#eeeeee"/>
            <LinearLayout
+               android:id="@+id/ll_diya"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:orientation="vertical"
@@ -482,6 +488,7 @@
            android:gravity="center"
            android:layout_marginBottom="16dp">
            <LinearLayout
+               android:id="@+id/ll_tiwen"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:orientation="vertical"

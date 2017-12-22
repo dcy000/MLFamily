@@ -3,6 +3,7 @@ package com.ml.doctor.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.widget.TextView;
 
 public class LocalShared {
     private final String SharedName = "ScopeMediaPrefsFile";
@@ -24,6 +25,11 @@ public class LocalShared {
      * 用户的电话号码
      */
     private final String UserPhone="user_phone";
+    /**
+     * 仪器id
+     */
+    private final String EqID="eq_id";
+
 
     private LocalShared(Context context){
         mShared = context.getSharedPreferences(SharedName, Context.MODE_PRIVATE);
@@ -40,8 +46,8 @@ public class LocalShared {
         return mShared.getString(UserToken, "");
     }
 
-    public int getUserId(){
-        return mShared.getInt(UserId, -1);
+    public String getUserId(){
+        return mShared.getString(UserId, "");
     }
     public String getUserNick() {
         return mShared.getString(UserNick,"");
@@ -55,11 +61,11 @@ public class LocalShared {
      * 保存userId到SP
      * @param userId
      */
-    public void setUserId(int userId){
-        if (userId==-1) {
+    public void setUserId(String userId){
+        if (TextUtils.isEmpty(userId)) {
             return;
         }
-        mShared.edit().putInt(UserId, userId).commit();
+        mShared.edit().putString(UserId, userId).commit();
     }
 
     /**
@@ -92,6 +98,19 @@ public class LocalShared {
             return;
         }
         mShared.edit().putString(UserPhone, userPhone).commit();
+    }
+
+    /**
+     * 将仪器id保存到sp中去
+     * @param eqid
+     */
+    public void setEqID(String eqid){
+        if(TextUtils.isEmpty(eqid))
+            return;
+        mShared.edit().putString(EqID,eqid).commit();
+    }
+    public String getEqID(){
+        return mShared.getString(EqID,"");
     }
     public void loginOut(){
         mShared.edit().clear();

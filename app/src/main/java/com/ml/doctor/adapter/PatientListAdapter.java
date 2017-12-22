@@ -1,13 +1,12 @@
 package com.ml.doctor.adapter;
 
 import android.support.annotation.Nullable;
-import android.widget.BaseAdapter;
 
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.ml.doctor.R;
-import com.ml.doctor.bean.PatientListBean;
+import com.ml.doctor.bean.FamilyListBean;
 
 import java.util.List;
 
@@ -17,13 +16,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by gzq on 2017/11/21.
  */
 
-public class PatientListAdapter extends BaseQuickAdapter<PatientListBean,BaseViewHolder>{
-    public PatientListAdapter(int layoutResId, @Nullable List<PatientListBean> data) {
+public class PatientListAdapter extends BaseQuickAdapter<FamilyListBean,BaseViewHolder>{
+    public PatientListAdapter(int layoutResId, @Nullable List<FamilyListBean> data) {
         super(layoutResId, data);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, PatientListBean item) {
+    protected void convert(BaseViewHolder helper, FamilyListBean item) {
         helper.setText(R.id.name,item.getBname());
         helper.setText(R.id.sex,item.getSex());
         helper.setText(R.id.age,item.getAge()+"岁");
