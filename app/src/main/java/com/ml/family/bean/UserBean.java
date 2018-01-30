@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by gzq on 2017/11/21.
  */
 
-public class FamilyListBean implements Parcelable{
+public class UserBean implements Parcelable{
     private String exercise_habits;
     private String sfz;
     private String sex;
@@ -30,10 +30,10 @@ public class FamilyListBean implements Parcelable{
     private String categoryid;
     private String height;
 
-    public FamilyListBean() {
+    public UserBean() {
     }
 
-    protected FamilyListBean(Parcel in) {
+    protected UserBean(Parcel in) {
         exercise_habits = in.readString();
         sfz = in.readString();
         sex = in.readString();
@@ -57,15 +57,15 @@ public class FamilyListBean implements Parcelable{
         height = in.readString();
     }
 
-    public static final Creator<FamilyListBean> CREATOR = new Creator<FamilyListBean>() {
+    public static final Creator<UserBean> CREATOR = new Creator<UserBean>() {
         @Override
-        public FamilyListBean createFromParcel(Parcel in) {
-            return new FamilyListBean(in);
+        public UserBean createFromParcel(Parcel in) {
+            return new UserBean(in);
         }
 
         @Override
-        public FamilyListBean[] newArray(int size) {
-            return new FamilyListBean[size];
+        public UserBean[] newArray(int size) {
+            return new UserBean[size];
         }
     };
 

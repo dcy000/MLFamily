@@ -1,5 +1,7 @@
 package com.ml.family.network;
 
+import android.text.TextUtils;
+
 import com.google.gson.reflect.TypeToken;
 import com.ml.family.bean.BUA;
 import com.ml.family.bean.BloodOxygenHistory;
@@ -7,7 +9,8 @@ import com.ml.family.bean.BloodPressureHistory;
 import com.ml.family.bean.BloodSugarHistory;
 import com.ml.family.bean.CholesterolHistory;
 import com.ml.family.bean.ECGHistory;
-import com.ml.family.bean.FamilyListBean;
+import com.ml.family.bean.RecordBean;
+import com.ml.family.bean.UserBean;
 import com.ml.family.bean.LoginBean;
 import com.ml.family.bean.PatientDetailsBean;
 import com.ml.family.bean.TemperatureHistory;
@@ -36,9 +39,14 @@ public class NetworkApi {
     public static final String PatientDetails = BasicUrl + "br/docter_oneuser";
     private static String Get_HealthRecord = BasicUrl + "br/cl_data";
     public static final String TOKEN_URL = BasicUrl + "br/seltoken";
-
+    /**
+     * 上传记录照片
+     */
     public static final String UPLOAD_IMG = BasicUrl + "rep/insert_report";
-
+    /**
+     * 获取单个患者的所有记录照片
+     */
+    public static final String GetRecordData=BasicUrl+"rep/selMoreReports";
     /**
      * 用户登录
      */
@@ -56,11 +64,11 @@ public class NetworkApi {
      * @param listener
      * @param failedCallback
      */
-    public static void familyList(String eqid, NetworkManager.SuccessCallback<List<FamilyListBean>> listener, NetworkManager.FailedCallback failedCallback) {
+    public static void familyList(String eqid, NetworkManager.SuccessCallback<List<UserBean>> listener, NetworkManager.FailedCallback failedCallback) {
 
         Map<String, String> map = new HashMap<>();
         map.put("eqid", eqid);
-        NetworkManager.getInstance().getResultClass(FamilyList, map, new TypeToken<List<FamilyListBean>>() {
+        NetworkManager.getInstance().getResultClass(FamilyList, map, new TypeToken<List<UserBean>>() {
         }.getType(), listener, failedCallback);
     }
 
@@ -246,9 +254,24 @@ public class NetworkApi {
         params.put("purl", purl);
         params.put("userid", userid);
         params.put("pmessage", pmessage);
-        params.put("pu1", pu1);
-        params.put("pu2", pu2);
-        params.put("pu3", pu3);
+        if (!TextUtils.isEmpty(pu1)) {
+            params.put("pu1", pu1);
+        }
+        if (!TextUtils.isEmpty(pu2)) {
+            params.put("pu2", pu2);
+        }
+        if (!TextUtils.isEmpty(pu3)) {
+            params.put("pu3", pu3);
+        }
         NetworkManager.getInstance().postResultString(UPLOAD_IMG, params, successCallback, failedCallback);
+    }
+    public static void getRecordData(String userId, String start, String limit, NetworkManager.SuccessCallback<ArrayList<RecordBean>> successCallback, NetworkManager.FailedCallback failedCallback
+    ) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("userid", userId);
+        params.put("start", start);
+        params.put("limit", limit);
+        NetworkManager.getInstance().getResultClass(GetRecordData, params,
+                new TypeToken<ArrayList<RecordBean>>() {}.getType(), successCallback, failedCallback);
     }
 }

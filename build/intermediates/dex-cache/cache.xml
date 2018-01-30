@@ -3,29 +3,11 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Administrator\.android\build-cache\896565ba0204b63eccd99e25258b060f1952246b\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0c3529d9491be892952749d252ae1defa9b1f937">
-        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_be8522b1710db2a2b60c2cc65eedb32b78e00a1e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Administrator\.android\build-cache\493674b0ce61e184efaac95404f30ab4cd05c489\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="57487745ce450899f9f250d5ae5c092a682cd041">
-        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5eb5dec85a0d7acbe2c5259b7b56da3565e9e78a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c2d674c5826594a34b2573d702cc08ed70d21591">
+        sha1="23ee8f123aaa33f7ac21bf7170f0de3636a0c5cb">
         <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_4a68ae498805622c1b43ae1009985aec92299368\classes.dex" />
     </item>
     <item

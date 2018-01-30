@@ -1,9 +1,7 @@
 package com.ml.family.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,15 +12,15 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.ml.family.R;
-import com.ml.family.bean.FamilyListBean;
 import com.ml.family.bean.PatientDetailsBean;
+import com.ml.family.bean.RecordBean;
+import com.ml.family.bean.UserBean;
 import com.ml.family.call2.NimAccountHelper;
 import com.ml.family.call2.NimCallActivity;
 import com.ml.family.network.NetworkApi;
 import com.ml.family.network.NetworkManager;
 import com.ml.family.utils.ToastUtil;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -125,12 +123,14 @@ public class PatientDetailsActivity extends BaseActivity implements View.OnClick
     ImageView record2;
     @BindView(R.id.record3)
     ImageView record3;
+    @BindView(R.id.ll_record_more)
+    LinearLayout llRecordMore;
 
 
     private int limit = 10;
     private int start_index = 0, end_index = 9;
-    private FamilyListBean patient;
-
+    private UserBean patient;
+    private ArrayList<RecordBean> recordBeans;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,6 +143,58 @@ public class PatientDetailsActivity extends BaseActivity implements View.OnClick
         setClick();
         setData();
         getData();
+        getRecord();
+    }
+
+    private void getRecord() {
+        NetworkApi.getRecordData(patient.getBid(), "0", "3", new NetworkManager.SuccessCallback<ArrayList<RecordBean>>() {
+            @Override
+            public void onSuccess(ArrayList<RecordBean> response) {
+                recordBeans=response;
+                switch (response.size()) {
+                    case 0:
+                        llRecordMore.setVisibility(View.GONE);
+                        break;
+                    case 1:
+                        Glide.with(PatientDetailsActivity.this)
+                                .load(response.get(0).getPurl())
+                                .placeholder(R.drawable.placeholder)
+                                .into(record1);
+                        break;
+                    case 2:
+                        Glide.with(PatientDetailsActivity.this)
+                                .load(response.get(0).getPurl())
+                                .placeholder(R.drawable.placeholder)
+                                .into(record1);
+                        Glide.with(PatientDetailsActivity.this)
+                                .load(response.get(1).getPurl())
+                                .placeholder(R.drawable.placeholder)
+                                .into(record2);
+                        break;
+                    case 3:
+                        Glide.with(PatientDetailsActivity.this)
+                                .load(response.get(0).getPurl())
+                                .placeholder(R.drawable.placeholder)
+                                .into(record1);
+                        Glide.with(PatientDetailsActivity.this)
+                                .load(response.get(1).getPurl())
+                                .placeholder(R.drawable.placeholder)
+                                .into(record2);
+                        Glide.with(PatientDetailsActivity.this)
+                                .load(response.get(2).getPurl())
+                                .placeholder(R.drawable.placeholder)
+                                .into(record3);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }, new NetworkManager.FailedCallback() {
+            @Override
+            public void onFailed(String message) {
+                Log.e(TAG, "onFailed: "+message );
+            }
+        });
     }
 
 
@@ -155,6 +207,9 @@ public class PatientDetailsActivity extends BaseActivity implements View.OnClick
         llDiya.setOnClickListener(this);
         llTiwen.setOnClickListener(this);
         recordMore.setOnClickListener(this);
+        record1.setOnClickListener(this);
+        record2.setOnClickListener(this);
+        record3.setOnClickListener(this);
     }
 
     private void setData() {
@@ -367,7 +422,19 @@ public class PatientDetailsActivity extends BaseActivity implements View.OnClick
                         .putExtra("userid", patient.getBid()));
                 break;
             case R.id.record_more://查看更多（疾病档案）
-                startActivity(new Intent(this,MoreRecordActivity.class).putExtra("userid",patient.getBid()));
+                startActivity(new Intent(this, MoreRecordActivity.class).putExtra("userid", patient.getBid()));
+                break;
+            case R.id.record1:
+                startActivity(new Intent(this, WatchImageActivity.class).putParcelableArrayListExtra("imgUrls",recordBeans )
+                .putExtra("position",0));
+                break;
+            case R.id.record2:
+                startActivity(new Intent(this, WatchImageActivity.class).putParcelableArrayListExtra("imgUrls",recordBeans )
+                        .putExtra("position",1));
+                break;
+            case R.id.record3:
+                startActivity(new Intent(this, WatchImageActivity.class).putParcelableArrayListExtra("imgUrls",recordBeans )
+                        .putExtra("position",2));
                 break;
         }
     }

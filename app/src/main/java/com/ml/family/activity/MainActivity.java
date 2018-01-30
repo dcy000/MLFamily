@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.ml.family.R;
 import com.ml.family.adapter.PatientListAdapter;
-import com.ml.family.bean.FamilyListBean;
+import com.ml.family.bean.UserBean;
 import com.ml.family.call2.NimAccountHelper;
 import com.ml.family.network.NetworkApi;
 import com.ml.family.network.NetworkManager;
@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity {
     private int limit = 500;
     private static String TAG = "MainActivity";
     private PatientListAdapter adapter;
-    private List<FamilyListBean> mData;
+    private List<UserBean> mData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +72,9 @@ public class MainActivity extends BaseActivity {
     private void getData(String bname) {
         showLoadingDialog();
         NetworkApi.familyList(LocalShared.getInstance(this).getEqID(),
-                new NetworkManager.SuccessCallback<List<FamilyListBean>>() {
+                new NetworkManager.SuccessCallback<List<UserBean>>() {
                     @Override
-                    public void onSuccess(List<FamilyListBean> response) {
+                    public void onSuccess(List<UserBean> response) {
                         mData .addAll(response);
                         adapter.notifyDataSetChanged();
                         hideLoadingDialog();
@@ -89,7 +89,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    private void setAdapter(List<FamilyListBean> response) {
+    private void setAdapter(List<UserBean> response) {
         list.setLayoutManager(new LinearLayoutManager(this));
 //        list.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         list.setAdapter(adapter = new PatientListAdapter(R.layout.patient_item, response));
