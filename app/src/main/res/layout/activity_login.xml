@@ -7,7 +7,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context="com.ml.doctor.activity.LoginActivity">
+    tools:context="com.ml.family.activity.LoginActivity">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,4 +46,15 @@
         android:gravity="center"
         android:layout_marginTop="40dp"
         android:clickable="true"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#999999"
+        android:text="\@杭州国辰迈联机器人科技有限公司"
+        android:textSize="12sp"
+        android:layout_marginBottom="25dp"/>
 </LinearLayout>
