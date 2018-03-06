@@ -63,18 +63,19 @@ public class MoreRecordActivity extends BaseActivity {
     private String userid;
     private int start = 0, limit = 8;
     private RecordAdapter adapter;
-    private HashMap<String,ArrayList<RecordBean>> group;
+    private HashMap<String, ArrayList<RecordBean>> group;
     private ArrayList<String> keys;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_record);
         ButterKnife.bind(this);
         setTopTitle("TA的档案");
-        setRightText("新增");
+        setRightView(R.drawable.add_record);
         userid = getIntent().getStringExtra("userid");
-        group=new HashMap<>();
-        keys=new ArrayList<>();
+        group = new HashMap<>();
+        keys = new ArrayList<>();
         setAdapter();
         initTakePhoto();
         getData(true);
@@ -85,12 +86,12 @@ public class MoreRecordActivity extends BaseActivity {
         NetworkApi.getRecordData(userid, start + "", limit + "", new NetworkManager.SuccessCallback<ArrayList<RecordBean>>() {
             @Override
             public void onSuccess(ArrayList<RecordBean> response) {
-                if(!isMore) {//刷新
+                if (!isMore) {//刷新
                     group.clear();
-                    start=0;
-                }else {//加载更多
+                    start = 0;
+                } else {//加载更多
                     group.clear();
-                    if (keys.size()%(limit+1)!=0){
+                    if (keys.size() % (limit + 1) != 0) {
                         start += limit;
                     }
                 }
@@ -100,20 +101,20 @@ public class MoreRecordActivity extends BaseActivity {
         }, new NetworkManager.FailedCallback() {
             @Override
             public void onFailed(String message) {
-                Log.e(TAG, "onFailed: "+"请求失败" );
+                Log.e(TAG, "onFailed: " + "请求失败");
             }
         });
     }
 
     private void divideData(ArrayList<RecordBean> response) {
-        for(RecordBean recordBean:response){
-            String time=recordBean.getPtime().split("\\s+")[0];
-            if (group.containsKey(time)){
+        for (RecordBean recordBean : response) {
+            String time = recordBean.getPtime().split("\\s+")[0];
+            if (group.containsKey(time)) {
                 group.get(time).add(recordBean);
-            }else{
-                ArrayList<RecordBean> beans=new ArrayList<>();
+            } else {
+                ArrayList<RecordBean> beans = new ArrayList<>();
                 beans.add(recordBean);
-                group.put(time,beans);
+                group.put(time, beans);
                 keys.add(time);
             }
         }
@@ -128,8 +129,8 @@ public class MoreRecordActivity extends BaseActivity {
     }
 
     private void setAdapter() {
-        adapter=new RecordAdapter(this,keys,group);
-        list.addItemDecoration(new GridViewDividerItemDecoration(5,5));
+        adapter = new RecordAdapter(this, keys, group);
+        list.addItemDecoration(new GridViewDividerItemDecoration(5, 5));
         list.setAdapter(adapter);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
         SectionedSpanSizeLookup lookup = new SectionedSpanSizeLookup(adapter, layoutManager);
@@ -138,7 +139,7 @@ public class MoreRecordActivity extends BaseActivity {
     }
 
     @Override
-    protected void onRightTextClick() {
+    protected void onRightViewClick() {
         pickPhotoPopwindow.startDialog();
         pickPhotoPopwindow.setOnChooseSrcListener(new InterfaceDialog() {
             @Override
@@ -153,7 +154,6 @@ public class MoreRecordActivity extends BaseActivity {
                 takePhoto.onPickFromGallery();
             }
         });
-
     }
 
     @Override

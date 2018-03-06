@@ -41,7 +41,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        NimAccountHelper.getInstance().login(LocalShared.getInstance(this).getEqID(), "123456",null);
         setHat();
         mData=new ArrayList<>();
         setAdapter(mData);
@@ -110,8 +109,15 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        NimAccountHelper.getInstance().login(LocalShared.getInstance(this).getEqID(), "123456",null);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         NimAccountHelper.getInstance().logout();
     }
+
 }

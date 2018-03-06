@@ -48,6 +48,14 @@ public class NetworkApi {
      */
     public static final String GetRecordData=BasicUrl+"rep/selMoreReports";
     /**
+     * 删除记录照片
+     */
+    public static final String Delete_Record=BasicUrl+"rep/delReport";
+    //微信统一下单接口
+    public static final String WX_TOTAL_ORDER = "https://api.mch.weixin.qq.com/pay/unifiedorder";
+
+
+    /**
      * 用户登录
      */
     public static void login(String username, String password, NetworkManager.SuccessCallback<LoginBean> listener, NetworkManager.FailedCallback failedCallback) {
@@ -265,6 +273,15 @@ public class NetworkApi {
         }
         NetworkManager.getInstance().postResultString(UPLOAD_IMG, params, successCallback, failedCallback);
     }
+
+    /**
+     * 获取患者记录照片
+     * @param userId
+     * @param start
+     * @param limit
+     * @param successCallback
+     * @param failedCallback
+     */
     public static void getRecordData(String userId, String start, String limit, NetworkManager.SuccessCallback<ArrayList<RecordBean>> successCallback, NetworkManager.FailedCallback failedCallback
     ) {
         HashMap<String, String> params = new HashMap<>();
@@ -273,5 +290,17 @@ public class NetworkApi {
         params.put("limit", limit);
         NetworkManager.getInstance().getResultClass(GetRecordData, params,
                 new TypeToken<ArrayList<RecordBean>>() {}.getType(), successCallback, failedCallback);
+    }
+
+    /**
+     * 删除患者记录照片
+     * @param pid
+     * @param listener
+     * @param failedCallback
+     */
+    public static void deleteRecord(String pid,NetworkManager.SuccessCallback<String> listener, NetworkManager.FailedCallback failedCallback) {
+        Map<String, String> paramsMap = new HashMap<>();
+        paramsMap.put("pid",pid);
+        NetworkManager.getInstance().postResultString(Delete_Record, paramsMap, listener, failedCallback);
     }
 }

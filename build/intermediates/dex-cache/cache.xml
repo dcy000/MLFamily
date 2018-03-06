@@ -2,13 +2,58 @@
 <items version="2" >
 
     <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.8.1\4d060ca3190df0eda4dc13415532a12e15ca5f11\okhttp-3.8.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4d060ca3190df0eda4dc13415532a12e15ca5f11">
+        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\pre-dexed\debug\okhttp-3.8.1_032b1d2117e56d98e15716cdfc48889f5c1fd244.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\Desktop\MLFamily\app\libs\alipaySdk-20170309.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2ce6c8d7e908b41b0c93c56169bec0de994d7a3d">
+        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\pre-dexed\debug\alipaySdk-20170309_5a165c695bd28876be9daac190b9add0e38caf14.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\8901efbb225365f6b016fa63737adeba92d53ba3\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="73e29ea5ff160d5cc7993fe3bbcc1cb7666c7a4c">
+        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9578771a2a5bd62a56076bb26103f9dec5ec6d6e\classes.dex" />
+    </item>
+    <item
         is-multidex="true"
         jar="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="23ee8f123aaa33f7ac21bf7170f0de3636a0c5cb">
+        sha1="e73ffd7f734e67b5a3bbfac5378bf77f4f56c2ce">
         <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_4a68ae498805622c1b43ae1009985aec92299368\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\8901efbb225365f6b016fa63737adeba92d53ba3\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="73e29ea5ff160d5cc7993fe3bbcc1cb7666c7a4c">
+        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\pre-dexed\debug\classes_9578771a2a5bd62a56076bb26103f9dec5ec6d6e.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\Desktop\MLFamily\app\libs\alipaySdk-20170309.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2ce6c8d7e908b41b0c93c56169bec0de994d7a3d">
+        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\transforms\dex\debug\folders\1000\2\alipaySdk-20170309_5a165c695bd28876be9daac190b9add0e38caf14\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -18,6 +63,60 @@
         revision="25.0.0"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c33ba4ded2141c6d014fec1aa57a6582d3ff9a23\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\502a48f7a3969f0500758782607962d80074fbdb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2115d9dd8708cb48e7481b1259ae9f00dc16a032">
+        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\pre-dexed\debug\classes_7b56d2eb803be0207021ce2dfd75dc69745254d7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.qiniu\happy-dns\0.2.13\a5a0b671cfa34710b904121fe8cb880c1b4b106c\happy-dns-0.2.13.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a5a0b671cfa34710b904121fe8cb880c1b4b106c">
+        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\pre-dexed\debug\happy-dns-0.2.13_8fb986b0e30a1ff1a3a9d6232f703df73405b222.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.tencent.mm.opensdk\wechat-sdk-android-with-mta\1.4.0\55f95375f268e0cd7ebe65f433969233990b12b7\wechat-sdk-android-with-mta-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="55f95375f268e0cd7ebe65f433969233990b12b7">
+        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\transforms\dex\debug\folders\1000\10\wechat-sdk-android-with-mta-1.4.0_1b173ad5bbe5064b281081533a487292d3850701\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.tencent.mm.opensdk\wechat-sdk-android-with-mta\1.4.0\55f95375f268e0cd7ebe65f433969233990b12b7\wechat-sdk-android-with-mta-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="55f95375f268e0cd7ebe65f433969233990b12b7">
+        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\pre-dexed\debug\wechat-sdk-android-with-mta-1.4.0_1b173ad5bbe5064b281081533a487292d3850701.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.qiniu\qiniu-android-sdk\7.3.10\51c65c7877479e76d4f0115552a0a079c467efc\qiniu-android-sdk-7.3.10.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="051c65c7877479e76d4f0115552a0a079c467efc">
+        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\pre-dexed\debug\qiniu-android-sdk-7.3.10_fb98a0be9493b7d23983854a6fa7c99dcc83bbf7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\ac9793effa87bea09ba8dc0ebb16d92bf13ca4e0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8b0231ff1692ac844199e0287d97ee99fb2512b4">
+        <dex dex="C:\Users\Administrator\Desktop\MLFamily\app\build\intermediates\pre-dexed\debug\classes_5f55a7622416960f01d16a746a2f53235c40f4d4.jar" />
     </item>
 
 </items>

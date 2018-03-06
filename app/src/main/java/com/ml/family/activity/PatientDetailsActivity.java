@@ -193,6 +193,7 @@ public class PatientDetailsActivity extends BaseActivity implements View.OnClick
             @Override
             public void onFailed(String message) {
                 Log.e(TAG, "onFailed: "+message );
+                llRecordMore.setVisibility(View.GONE);
             }
         });
     }

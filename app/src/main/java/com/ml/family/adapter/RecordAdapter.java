@@ -12,6 +12,10 @@ import com.ml.family.adapter.record_holder.CountFooterViewHolder;
 import com.ml.family.adapter.record_holder.CountHeaderViewHolder;
 import com.ml.family.adapter.record_holder.CountItemViewHolder;
 import com.ml.family.bean.RecordBean;
+import com.ml.family.dialog.RxDialogSureCancel;
+import com.ml.family.network.NetworkApi;
+import com.ml.family.network.NetworkManager;
+import com.ml.family.utils.ToastUtil;
 import com.truizlop.sectionedrecyclerview.SectionedRecyclerViewAdapter;
 
 import java.util.ArrayList;
@@ -79,6 +83,7 @@ public class RecordAdapter extends SectionedRecyclerViewAdapter<CountHeaderViewH
     @Override
     protected void onBindItemViewHolder(CountItemViewHolder countItemViewHolder, final int i, final int i1) {
         countItemViewHolder.render(context,group.get(keys.get(i)).get(i1).getPurl());
+
         countItemViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,5 +92,45 @@ public class RecordAdapter extends SectionedRecyclerViewAdapter<CountHeaderViewH
                         .putExtra("position",i1));
             }
         });
+        /**
+         * 长按删除
+         */
+        countItemViewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                final RxDialogSureCancel dialogSureCancel=new RxDialogSureCancel(context);
+                dialogSureCancel.getTitleView().setVisibility(View.GONE);
+                dialogSureCancel.setContent("确定删除此次记录吗？");
+                dialogSureCancel.setSureListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogSureCancel.cancel();
+                        NetworkApi.deleteRecord(group.get(keys.get(i)).get(i1).getPid(), new NetworkManager.SuccessCallback<String>() {
+                            @Override
+                            public void onSuccess(String response) {
+                                ToastUtil.showShort(context,"删除成功");
+                                group.get(keys.get(i)).remove(i1);
+                                RecordAdapter.this.notifyDataSetChanged();
+                            }
+                        }, new NetworkManager.FailedCallback() {
+                            @Override
+                            public void onFailed(String message) {
+                                ToastUtil.showShort(context,"删除失败");
+                            }
+                        });
+                    }
+                });
+                dialogSureCancel.setCancelListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialogSureCancel.cancel();
+                    }
+                });
+                dialogSureCancel.show();
+                return true;//不加短按
+            }
+        });
     }
+
+
 }
