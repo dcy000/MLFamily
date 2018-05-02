@@ -1,6 +1,8 @@
 package com.ml.family.activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
@@ -20,6 +22,7 @@ import com.ml.family.call2.NimCallActivity;
 import com.ml.family.network.NetworkApi;
 import com.ml.family.network.NetworkManager;
 import com.ml.family.utils.ToastUtil;
+import com.vondear.rxtools.view.RxQRCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,62 +48,30 @@ public class PatientDetailsActivity extends BaseActivity implements View.OnClick
     TextView weight;
     @BindView(R.id.blood)
     TextView blood;
-    @BindView(R.id.ll1)
-    LinearLayout ll1;
-    @BindView(R.id.line1)
-    View line1;
-    @BindView(R.id.line2)
-    View line2;
     @BindView(R.id.eating)
     TextView eating_t;
-    @BindView(R.id.ll_hatis1)
-    LinearLayout llHatis1;
     @BindView(R.id.smoke)
     TextView smoke;
-    @BindView(R.id.ll_hatis2)
-    LinearLayout llHatis2;
     @BindView(R.id.drinking)
     TextView drinking_t;
-    @BindView(R.id.ll_hatis3)
-    LinearLayout llHatis3;
     @BindView(R.id.sports)
     TextView sports;
-    @BindView(R.id.ll_hatis4)
-    LinearLayout llHatis4;
-    @BindView(R.id.line3)
-    View line3;
-    @BindView(R.id.line4)
-    View line4;
     @BindView(R.id.maibo)
     TextView maibo;
     @BindView(R.id.xinlv)
     TextView xinlv;
-    @BindView(R.id.ll2)
-    LinearLayout ll2;
-    @BindView(R.id.line5)
-    View line5;
     @BindView(R.id.xuetang)
     TextView xuetang;
     @BindView(R.id.xueyang)
     TextView xueyang;
-    @BindView(R.id.ll3)
-    LinearLayout ll3;
-    @BindView(R.id.line6)
-    View line6;
     @BindView(R.id.gaoya)
     TextView gaoya;
     @BindView(R.id.diya)
     TextView diya;
-    @BindView(R.id.ll4)
-    LinearLayout ll4;
-    @BindView(R.id.line7)
-    View line7;
     @BindView(R.id.tiwen)
     TextView tiwen;
     @BindView(R.id.more)
     TextView more;
-    @BindView(R.id.ll5)
-    LinearLayout ll5;
     @BindView(R.id.ll_maibo)
     LinearLayout llMaibo;
     @BindView(R.id.ll_xinlv)
@@ -125,7 +96,8 @@ public class PatientDetailsActivity extends BaseActivity implements View.OnClick
     ImageView record3;
     @BindView(R.id.ll_record_more)
     LinearLayout llRecordMore;
-
+    @BindView(R.id.iv_qr)
+    ImageView ivQR;
 
     private int limit = 10;
     private int start_index = 0, end_index = 9;
@@ -211,6 +183,7 @@ public class PatientDetailsActivity extends BaseActivity implements View.OnClick
         record1.setOnClickListener(this);
         record2.setOnClickListener(this);
         record3.setOnClickListener(this);
+        ivQR.setOnClickListener(this);
     }
 
     private void setData() {
@@ -293,6 +266,12 @@ public class PatientDetailsActivity extends BaseActivity implements View.OnClick
                     break;
             }
         sports.setText(motioning);
+        Bitmap bitmapQR=RxQRCode.builder(NetworkApi.Month_Report)
+                .backColor(Color.WHITE)
+                .codeColor(Color.BLACK)
+                .codeSide(300)
+                .into(ivQR);
+
     }
 
 
@@ -309,7 +288,7 @@ public class PatientDetailsActivity extends BaseActivity implements View.OnClick
                 }, new NetworkManager.FailedCallback() {
                     @Override
                     public void onFailed(String message) {
-                        ToastUtil.showShort(PatientDetailsActivity.this, message);
+                        ToastUtil.showShort(message);
                         maibo.setText(getString(R.string.noData));
                         xinlv.setText(getString(R.string.noData));
                         xuetang.setText(getString(R.string.noData));
@@ -436,6 +415,9 @@ public class PatientDetailsActivity extends BaseActivity implements View.OnClick
             case R.id.record3:
                 startActivity(new Intent(this, WatchImageActivity.class).putParcelableArrayListExtra("imgUrls",recordBeans )
                         .putExtra("position",2));
+                break;
+            case R.id.iv_qr:
+                startActivity(new Intent(this,WebMonthReportActivity.class));
                 break;
         }
     }

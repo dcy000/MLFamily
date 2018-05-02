@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.darsh.multipleimageselect:multipleimageselect-1.0.4">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/984412a93dd82c1366146e32c5ccc1761d0d3f63/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/984412a93dd82c1366146e32c5ccc1761d0d3f63/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/ebd7d93868f2d388c2968155d30efba9e97dd02d/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/ebd7d93868f2d388c2968155d30efba9e97dd02d/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

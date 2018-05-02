@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(!TextUtils.isEmpty(LocalShared.getInstance(this).getUserId())){
             NimAccountHelper.getInstance().login(LocalShared.getInstance(this).getEqID(), "123456",null);
             startActivity(new Intent(LoginActivity.this,MainActivity.class));//跳转到列表界面
-            ToastUtil.showShort(LoginActivity.this,getString(R.string.login_success));
+            ToastUtil.showShort(getString(R.string.login_success));
             finish();
         }
     }
@@ -75,11 +75,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         final String user=name.getText().toString().trim();
         String pwd=password.getText().toString().trim();
         if(TextUtils.isEmpty(user)){
-            ToastUtil.showShort(LoginActivity.this,getString(R.string.name_tip));
+            ToastUtil.showShort(getString(R.string.name_tip));
             return;
         }
         if(TextUtils.isEmpty(pwd)){
-            ToastUtil.showShort(LoginActivity.this,getString(R.string.pwd_tip));
+            ToastUtil.showShort(getString(R.string.pwd_tip));
             return;
         }
         //显示加载dialog
@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onSuccess(LoginBean response) {
                 NimAccountHelper.getInstance().login(response.getEqid(), "123456",null);
                 startActivity(new Intent(LoginActivity.this,MainActivity.class));//跳转到列表界面
-                ToastUtil.showShort(LoginActivity.this,getString(R.string.login_success));
+                ToastUtil.showShort(getString(R.string.login_success));
                 Log.e(TAG,response.toString());
                 saveToLocal(response);
                 hideLoadingDialog();
@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }, new NetworkManager.FailedCallback() {
             @Override
             public void onFailed(String message) {
-                ToastUtil.showShort(LoginActivity.this,message);
+                ToastUtil.showShort(message);
                 hideLoadingDialog();
             }
         });

@@ -1,12 +1,10 @@
 <component name="libraryTable">
   <library name="com.netease.nimlib:basesdk-4.3.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/90f5ea3455c32b97dc5a3f5741be4ffe31ad652d/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/90f5ea3455c32b97dc5a3f5741be4ffe31ad652d/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/fda098e01dca360201dbcfa053f57bea60c5ccfd/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/fda098e01dca360201dbcfa053f57bea60c5ccfd/output/res" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netease.nimlib/basesdk/4.3.0/ec573b959c5083fa1e90adcadfc99059abb30380/basesdk-4.3.0-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

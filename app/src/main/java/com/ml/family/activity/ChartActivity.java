@@ -254,7 +254,7 @@ public class ChartActivity extends BaseActivity implements RadioGroup.OnCheckedC
         }, new NetworkManager.FailedCallback() {
             @Override
             public void onFailed(String message) {
-                ToastUtil.showShort(ChartActivity.this,message);
+                ToastUtil.showShort(message);
             }
         });
     }
@@ -781,7 +781,7 @@ public class ChartActivity extends BaseActivity implements RadioGroup.OnCheckedC
         }, new NetworkManager.FailedCallback() {
             @Override
             public void onFailed(String message) {
-                ToastUtil.showShort(ChartActivity.this,message);
+                ToastUtil.showShort(message);
                 if(danguchunChart!=null){
                     danguchunChart.setNoDataText(getResources().getString(R.string.noData));
                     danguchunChart.setData(null);
@@ -828,7 +828,7 @@ public class ChartActivity extends BaseActivity implements RadioGroup.OnCheckedC
         }, new NetworkManager.FailedCallback() {
             @Override
             public void onFailed(String message) {
-                ToastUtil.showShort(ChartActivity.this,message);
+                ToastUtil.showShort(message);
                 tiwenChart.setNoDataText(getResources().getString(R.string.noData));
                 tiwenChart.setData(null);
                 tiwenChart.invalidate();
@@ -905,7 +905,7 @@ public class ChartActivity extends BaseActivity implements RadioGroup.OnCheckedC
         }, new NetworkManager.FailedCallback() {
             @Override
             public void onFailed(String message) {
-                ToastUtil.showShort(ChartActivity.this,message);
+                ToastUtil.showShort(message);
                 xuetangChart.setNoDataText(getResources().getString(R.string.noData));
                 xuetangChart.setData(null);
                 xuetangChart.invalidate();
@@ -946,7 +946,7 @@ public class ChartActivity extends BaseActivity implements RadioGroup.OnCheckedC
         }, new NetworkManager.FailedCallback() {
             @Override
             public void onFailed(String message) {
-                ToastUtil.showShort(ChartActivity.this,message);
+                ToastUtil.showShort(message);
                 xueyangChart.setNoDataText(getResources().getString(R.string.noData));
                 xueyangChart.setData(null);
                 xueyangChart.invalidate();
@@ -998,7 +998,7 @@ public class ChartActivity extends BaseActivity implements RadioGroup.OnCheckedC
         }, new NetworkManager.FailedCallback() {
             @Override
             public void onFailed(String message) {
-                ToastUtil.showShort(ChartActivity.this,message);
+                ToastUtil.showShort(message);
                 xueyaChart.setNoDataText(getResources().getString(R.string.noData));
                 xueyaChart.setData(null);
                 xueyaChart.invalidate();
@@ -1040,7 +1040,7 @@ public class ChartActivity extends BaseActivity implements RadioGroup.OnCheckedC
         }, new NetworkManager.FailedCallback() {
             @Override
             public void onFailed(String message) {
-                ToastUtil.showShort(ChartActivity.this,message);
+                ToastUtil.showShort(message);
                 if(xueniaosuanChart!=null){
                     xueniaosuanChart.setNoDataText(getResources().getString(R.string.noData));
                     xueniaosuanChart.setData(null);

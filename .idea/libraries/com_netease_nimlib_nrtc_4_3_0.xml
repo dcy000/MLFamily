@@ -1,14 +1,12 @@
 <component name="libraryTable">
   <library name="com.netease.nimlib:nrtc-4.3.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.android/build-cache/54ec4b4f1e4c1c4b134ac21796edd2249c846b84/output/jars/libs/nrtc-sdk.jar!/" />
-      <root url="jar://$USER_HOME$/.android/build-cache/54ec4b4f1e4c1c4b134ac21796edd2249c846b84/output/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.android/build-cache/54ec4b4f1e4c1c4b134ac21796edd2249c846b84/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/54ec4b4f1e4c1c4b134ac21796edd2249c846b84/output/jars/libs/video_effect.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/f1442c191f67e5e0c0a0782fc3c74a27b1061ad1/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/f1442c191f67e5e0c0a0782fc3c74a27b1061ad1/output/jars/libs/nrtc-sdk.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/f1442c191f67e5e0c0a0782fc3c74a27b1061ad1/output/jars/libs/video_effect.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/f1442c191f67e5e0c0a0782fc3c74a27b1061ad1/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netease.nimlib/nrtc/4.3.0/ea7df5e70ba23721647d453afce5ed660df6e85c/nrtc-4.3.0-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

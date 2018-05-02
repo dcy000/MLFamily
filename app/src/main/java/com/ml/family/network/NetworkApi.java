@@ -1,6 +1,7 @@
 package com.ml.family.network;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.gson.reflect.TypeToken;
 import com.ml.family.bean.BUA;
@@ -22,9 +23,9 @@ import java.util.Map;
 
 public class NetworkApi {
 
-    //    public static final String BasicUrl = "http://192.168.200.112:8080/ZZB/";
+        public static final String BasicUrl = "http://192.168.200.157:8080/ZZB/";
 //    public static final String BasicUrl = "http://118.31.238.207:8080/ZZB/";
-    public static final String BasicUrl = "http://116.62.36.12:8080/ZZB/";
+//    public static final String BasicUrl = "http://116.62.36.12:8080/ZZB/";
     /**
      * 用户登录
      */
@@ -54,7 +55,7 @@ public class NetworkApi {
     //微信统一下单接口
     public static final String WX_TOTAL_ORDER = "https://api.mch.weixin.qq.com/pay/unifiedorder";
 
-
+    public static final String Month_Report="http://192.168.200.157:8080/ZZB/br/whole_informations?bid=100001&bname=用户二";
     /**
      * 用户登录
      */
@@ -89,7 +90,7 @@ public class NetworkApi {
      * @param failedCallback
      */
     public static void patientDetails(String bid, int start, int limit, NetworkManager.SuccessCallback<List<PatientDetailsBean>> listener, NetworkManager.FailedCallback failedCallback) {
-
+        Log.e("患者id", "patientDetails: "+bid );
         Map<String, String> map = new HashMap<>();
         map.put("bid", bid);
         map.put("start", start + "");

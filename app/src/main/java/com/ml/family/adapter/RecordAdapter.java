@@ -108,14 +108,14 @@ public class RecordAdapter extends SectionedRecyclerViewAdapter<CountHeaderViewH
                         NetworkApi.deleteRecord(group.get(keys.get(i)).get(i1).getPid(), new NetworkManager.SuccessCallback<String>() {
                             @Override
                             public void onSuccess(String response) {
-                                ToastUtil.showShort(context,"删除成功");
+                                ToastUtil.showShort("删除成功");
                                 group.get(keys.get(i)).remove(i1);
                                 RecordAdapter.this.notifyDataSetChanged();
                             }
                         }, new NetworkManager.FailedCallback() {
                             @Override
                             public void onFailed(String message) {
-                                ToastUtil.showShort(context,"删除失败");
+                                ToastUtil.showShort("删除失败");
                             }
                         });
                     }

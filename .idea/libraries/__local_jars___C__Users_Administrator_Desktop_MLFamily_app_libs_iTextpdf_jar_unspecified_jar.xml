@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="__local_jars__:C.\Users\Administrator\Desktop\MLFamily\app\libs\iTextpdf.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/iTextpdf.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

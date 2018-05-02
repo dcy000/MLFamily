@@ -160,7 +160,7 @@ public class MoreRecordActivity extends BaseActivity {
     public void takeSuccess(TResult result) {
         super.takeSuccess(result);
         if (!Utils.isConnected(this)) {
-            ToastUtil.showShort(this, "请检查您的网络");
+            ToastUtil.showShort( "请检查您的网络");
             return;
         }
         if (!Utils.isWifiConnected(this)) {
@@ -258,13 +258,13 @@ public class MoreRecordActivity extends BaseActivity {
                 NetworkApi.uploadImg(imageUrl, userid, tipsMessage, null, null, null, new NetworkManager.SuccessCallback<String>() {
                     @Override
                     public void onSuccess(String response) {
-                        ToastUtil.showShort(MoreRecordActivity.this, "上传成功");
+                        ToastUtil.showShort( "上传成功");
                         getData(true);
                     }
                 }, new NetworkManager.FailedCallback() {
                     @Override
                     public void onFailed(String message) {
-                        ToastUtil.showShort(MoreRecordActivity.this, "上传失败");
+                        ToastUtil.showShort( "上传失败");
                     }
                 });
             }

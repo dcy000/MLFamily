@@ -10,11 +10,19 @@ android {
         versionCode 1
         versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
         }
     }
 }
@@ -42,14 +50,19 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'
     compile 'com.jph.takephoto:takephoto_library:4.0.3'
     compile 'com.qiniu:qiniu-android-sdk:7.3.+'
-
     compile 'com.truizlop.sectionedrecyclerview:library:1.2.0'
     compile 'com.github.chrisbanes:PhotoView:2.1.3'
-
     //微信登录，支付，分享包
-    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0'
+//    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0'
     //支付宝 支付包
-    compile files('libs/alipaySdk-20170309.jar')
+//    compile files('libs/alipaySdk-20170309.jar')
     //okgo 网络请求框架包
     compile 'com.lzy.net:okgo:3.0.4'
+    //日志框架
+    compile 'com.orhanobut:logger:2.1.1'
+    //工具库
+    compile 'com.github.vondear:RxTools:v1.7.7.1'
+
+    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.linkedin.dexmaker:dexmaker-mockito:2.12.1'
 }
